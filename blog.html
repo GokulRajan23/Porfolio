@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Technobyte - Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #666666;
+            letter-spacing: 3px;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #666666;
+            border-bottom: 1px solid #333333;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            border-bottom: 2px solid #000000;
+            padding-bottom: 30px;
+            margin-bottom: 50px;
+        }
+
+        .featured-article h2 {
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            color: #000000;
+        }
+
+        .featured-article .meta {
+            font-size: 0.9rem;
+            color: #999999;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .featured-article p {
+            font-size: 1.1rem;
+            color: #555555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .featured-article a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .featured-article a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        /* Secondary Articles Section */
+        .secondary-articles {
+            margin-top: 50px;
+        }
+
+        .secondary-articles h3 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #cccccc;
+            color: #000000;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .article-card {
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .article-card:last-child {
+            border-bottom: none;
+        }
+
+        .article-card h4 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: #000000;
+            transition: color 0.3s ease;
+        }
+
+        .article-card h4 a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-card h4 a:hover {
+            color: #0066cc;
+        }
+
+        .article-card .meta {
+            font-size: 0.85rem;
+            color: #999999;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .article-card p {
+            font-size: 0.95rem;
+            color: #666666;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .article-card a.read-more {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .article-card a.read-more:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        /* Two Column Layout for Desktop */
+        @media (min-width: 768px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                gap-row: 40px;
+            }
+
+            .article-card {
+                padding-right: 15px;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+
+            .article-card:nth-child(odd) {
+                border-right: 1px solid #e0e0e0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .article-card:nth-child(odd) {
+                border-right: none;
+            }
+
+            .article-card:not(:nth-child(3n)) {
+                border-right: 1px solid #e0e0e0;
+            }
+
+            .article-card {
+                padding-right: 15px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 50px;
+            color: #999999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Text */
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav {
+                gap: 20px;
+                font-size: 0.85rem;
+            }
+
+            .featured-article h2 {
+                font-size: 1.8rem;
+            }
+
+            .article-card h4 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>The Technobyte</h1>
+        <p>Tech. Systems. Ideas.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Featured Article -->
+        <section class="featured-article">
+            <h2>Technical Difficulties in Implementing 5G in India</h2>
+            <div class="meta">April 12, 2025</div>
+            <p>
+                5G technology promises unprecedented speeds and connectivity, but India faces unique challenges in implementation. 
+                From infrastructure gaps to regulatory hurdles, discover the technical and logistical obstacles that India must overcome 
+                to fully leverage next-generation wireless technology.
+            </p>
+            <a href="blogposts/2025-04-12_TECHNICAL-DIFFICULTIES-IN-IMPLEMENTING-5G-IN-INDIA-e083b49f4d14.html">
+                Read Full Article →
+            </a>
+        </section>
+
+        <!-- Secondary Articles -->
+        <section class="secondary-articles">
+            <h3>Latest Articles</h3>
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <h4>
+                        <a href="blogposts/2025-04-12_WHAT-HAPPENED-TO-ANDROID-TABLETS--dbc83fbe1b91.html">
+                            What Happened to Android Tablets?
+                        </a>
+                    </h4>
+                    <div class="meta">April 12, 2025</div>
+                    <p>
+                        Android tablets once promised to revolutionize mobile computing, yet they've faded from mainstream consumer interest. 
+                        Explore the factors that led to their decline and what the future holds.
+                    </p>
+                    <a href="blogposts/2025-04-12_WHAT-HAPPENED-TO-ANDROID-TABLETS--dbc83fbe1b91.html" class="read-more">
+                        Read More →
+                    </a>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <h4>
+                        <a href="blogposts/2020-08-05_WHAT-IS-DIGITAL-MARKETING--9a6b3a464350.html">
+                            What Is Digital Marketing?
+                        </a>
+                    </h4>
+                    <div class="meta">August 5, 2020</div>
+                    <p>
+                        A comprehensive introduction to digital marketing: what it is, how it works, and why every modern business 
+                        needs a solid digital marketing strategy to succeed in today's competitive market.
+                    </p>
+                    <a href="blogposts/2020-08-05_WHAT-IS-DIGITAL-MARKETING--9a6b3a464350.html" class="read-more">
+                        Read More →
+                    </a>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <h4>
+                        <a href="blogposts/2020-07-21_HOW-TO-FIX--RESOURCES-NOT-FOUND--ERROR-WHEN-INSTALLING-LARGE-APK-FILES--TIPS---TRICKS---cbcc1e5324ca.html">
+                            How to Fix "Resources Not Found" Error
+                        </a>
+                    </h4>
+                    <div class="meta">July 21, 2020</div>
+                    <p>
+                        Troubleshooting guide for resolving the "Resources Not Found" error when installing large APK files on Android devices. 
+                        Includes practical tips and tricks.
+                    </p>
+                    <a href="blogposts/2020-07-21_HOW-TO-FIX--RESOURCES-NOT-FOUND--ERROR-WHEN-INSTALLING-LARGE-APK-FILES--TIPS---TRICKS---cbcc1e5324ca.html" class="read-more">
+                        Read More →
+                    </a>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card">
+                    <h4>
+                        <a href="blogposts/2020-10-29_5-reasons-to-buy-the-Oneplus-buds-Z-e854223e1a85.html">
+                            5 Reasons to Buy the OnePlus Buds Z
+                        </a>
+                    </h4>
+                    <div class="meta">October 29, 2020</div>
+                    <p>
+                        A detailed analysis of why the OnePlus Buds Z are a compelling choice for tech enthusiasts looking for 
+                        premium wireless earbuds at a competitive price point.
+                    </p>
+                    <a href="blogposts/2020-10-29_5-reasons-to-buy-the-Oneplus-buds-Z-e854223e1a85.html" class="read-more">
+                        Read More →
+                    </a>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card">
+                    <h4>
+                        <a href="blogposts/2021-06-19_HOW-TO-DOWNLOAD-BATTLEGROUNDS-MOBILE-INDIA-IN-JUST-5-STEPS-4947312eb01f.html">
+                            How to Download Battlegrounds Mobile India
+                        </a>
+                    </h4>
+                    <div class="meta">June 19, 2021</div>
+                    <p>
+                        Step-by-step guide to downloading and installing Battlegrounds Mobile India (BGMI) on your smartphone 
+                        with quick and easy instructions.
+                    </p>
+                    <a href="blogposts/2021-06-19_HOW-TO-DOWNLOAD-BATTLEGROUNDS-MOBILE-INDIA-IN-JUST-5-STEPS-4947312eb01f.html" class="read-more">
+                        Read More →
+                    </a>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="article-card">
+                    <h4>
+                        <a href="blogposts/2021-03-22_Samsung-Galaxy-A51-Review--One-Year-Later-7cbf355b941c.html">
+                            Samsung Galaxy A51 Review: One Year Later
+                        </a>
+                    </h4>
+                    <div class="meta">March 22, 2021</div>
+                    <p>
+                        Long-term review of the Samsung Galaxy A51 after one year of use. Does this mid-range flagship still hold up 
+                        against newer competitors?
+                    </p>
+                    <a href="blogposts/2021-03-22_Samsung-Galaxy-A51-Review--One-Year-Later-7cbf355b941c.html" class="read-more">
+                        Read More →
+                    </a>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 The Technobyte. All rights reserved.</p>
+    </footer>
+</body>
+</html>
