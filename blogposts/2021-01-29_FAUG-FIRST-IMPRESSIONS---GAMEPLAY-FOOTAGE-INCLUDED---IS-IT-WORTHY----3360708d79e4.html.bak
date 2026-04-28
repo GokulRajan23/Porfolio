@@ -25,16 +25,12 @@
         color: #333;
       }
       header {
-        width: 100%;
-        max-width: 900px;
+        width: 640px;
         margin: auto;
-        padding: 0 20px;
       }
       section {
-        width: 100%;
-        max-width: 900px;
+        width: 640px;
         margin: auto;
-        padding: 0 20px;
       }
       section p {
         margin-bottom: 27px;
@@ -43,13 +39,10 @@
         color: #333;
       }
       section img {
-        width: 100%;
-        height: auto;
-        max-width: 900px;
-        display: block;
+        max-width: 640px;
       }
       footer {
-        padding: 20px;
+        padding: 0 20px;
         margin: 50px 0;
         text-align: center;
         font-size: 12px;
@@ -65,28 +58,6 @@
       section[data-field=subtitle],
       section[data-field=description] {
         display: none;
-      }
-      @media (min-width: 768px) {
-        h1 {
-          font-size: 56px;
-        }
-        h3 {
-          font-size: 36px;
-        }
-        section p {
-          font-size: 21px;
-        }
-      }
-      @media (max-width: 640px) {
-        header {
-          padding: 0 15px;
-        }
-        section {
-          padding: 0 15px;
-        }
-        footer {
-          padding: 15px;
-        }
       }
       </style></head><body><article class="h-entry">
 <header>
