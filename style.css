@@ -238,10 +238,54 @@ h1, h2, h3 {
 
 /* Hero Section */
 .hero {
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 5rem;
+}
+
+/* Scroll hint at the foot of the hero, fades out once the page moves */
+.scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.scroll-cue i {
+    font-size: 1rem;
+    animation: nudge 2s ease-in-out infinite;
+}
+
+.scroll-cue:hover {
+    color: var(--primary);
+}
+
+.scroll-cue.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes nudge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-cue i {
+        animation: none;
+    }
 }
 
 .hero-content {

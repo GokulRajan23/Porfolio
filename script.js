@@ -69,12 +69,18 @@
 
         // Header Background on Scroll
         const header = document.querySelector('header');
-        
+        const scrollCue = document.querySelector('.scroll-cue');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+
+            // Once they've started scrolling, the hint has done its job
+            if (scrollCue) {
+                scrollCue.classList.toggle('hidden', window.scrollY > 80);
             }
         });
 
