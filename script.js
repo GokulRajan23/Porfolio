@@ -32,7 +32,7 @@
 
             if (prefersReducedMotion) {
                 // Skip the animation entirely and show the roles as plain text
-                typedRole.textContent = roles.join(' | ');
+                typedRole.textContent = roles.join(' and ');
                 document.querySelector('.caret')?.remove();
             } else {
                 const TYPE_SPEED = 75;      // ms per character while typing
