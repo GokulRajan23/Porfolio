@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gokul Rajan | Personal Portfolio</title>
-    <meta name="description" content="Portfolio of Gokul Rajan - Project Coordination & Documentation | Process Tracking & Execution.">
+    <meta name="description" content="Portfolio of Gokul Rajan - SAP Change Management | Technical Content Analyst | AI Workflow Automation.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -39,8 +39,14 @@
         <section id="hero" class="hero">
             <div class="hero-content reveal-on-load">
                 <h1>Hi, I'm <span class="highlight">Gokul Rajan</span></h1>
-                <h2>Project Coordination | Documentation | Process Tracking</h2>
+                <h2>SAP Change Management | Technical Content Analyst | AI Workflow Automation</h2>
                 <p class="location"><i class="fa-solid fa-location-dot"></i> Germany</p>
+                <!-- TODO: replace RESUME_DRIVE_LINK with the Google Drive share URL of the resume -->
+                <div class="hero-actions">
+                    <a href="RESUME_DRIVE_LINK" class="btn-primary" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-file-arrow-down"></i> View / Download Resume
+                    </a>
+                </div>
                 <div class="social-links">
                     <a href="https://linkedin.com/in/gokul-rajan-ece" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://github.com/GokulRajan23" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -54,6 +60,14 @@
         <section id="skills" class="skills-section">
             <h2 class="section-title reveal">Core Competencies</h2>
             <div class="skills-grid">
+                <div class="glass-card skill-card reveal">
+                    <h3><i class="fa-solid fa-bullseye"></i> Focus Areas</h3>
+                    <ul>
+                        <li>SAP Change Management</li>
+                        <li>Technical Content Analysis</li>
+                        <li>Generative AI Enthusiast</li>
+                    </ul>
+                </div>
                 <div class="glass-card skill-card reveal">
                     <h3><i class="fa-solid fa-list-check"></i> Project Support</h3>
                     <ul>
@@ -183,8 +197,50 @@
         <section id="projects" class="projects-section">
             <h2 class="section-title reveal">Projects & Hackathons</h2>
             <div class="projects-grid">
-                
+
                 <!-- Project 1 -->
+                <div class="glass-card project-card reveal hover-lift">
+                    <div class="project-header">
+                        <h3>Q Hack 2026 - AI Sales Coach (Minerva)</h3>
+                        <div class="badge-row">
+                            <span class="category-badge">Multi-Agent AI System</span>
+                            <span class="category-badge award-badge"><i class="fa-solid fa-trophy"></i> 1st Place</span>
+                        </div>
+                    </div>
+                    <p class="description">Built at Q Hack 2026 in Mannheim: a LangGraph-based multi-agent AI system that processes real-time input data to generate structured sales coaching outputs.</p>
+                    <ul class="key-contributions">
+                        <li>Designed the agent architecture, prompt pipeline and evaluation logic from scratch</li>
+                        <li>Orchestrated multiple agents into a single structured coaching output</li>
+                        <li>Awarded 1st place among all competing teams</li>
+                    </ul>
+                    <div class="tags">
+                        <span>LangGraph</span> <span>Multi-Agent Systems</span> <span>Prompt Engineering</span> <span>Python</span> <span>LLM Evaluation</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card project-card reveal hover-lift">
+                    <div class="project-header">
+                        <h3>Should I Buy It</h3>
+                        <div class="badge-row">
+                            <span class="category-badge">React / AI Web App</span>
+                        </div>
+                    </div>
+                    <p class="description">A gamified purchase-decision app. Answer a short run of timed questions about a product and an LLM returns a straight YES or NO verdict with a one-line reason.</p>
+                    <ul class="key-contributions">
+                        <li>Built a category-aware question engine covering 12 product categories with timed questions, sliders and choice inputs</li>
+                        <li>Integrated the OpenRouter API to return a strict JSON verdict plus a one-sentence justification</li>
+                        <li>Managed quiz flow with a reducer-based React hook and an age gate for restricted categories</li>
+                    </ul>
+                    <div class="tags">
+                        <span>React 19</span> <span>Vite</span> <span>Tailwind CSS</span> <span>OpenRouter API</span> <span>Vercel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/GokulRajan23/ShouldIBuyIt" target="_blank" class="btn"><i class="fa-brands fa-github"></i> Github link</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
                 <div class="glass-card project-card reveal hover-lift">
                     <div class="project-header">
                         <h3>AI Founding Agent Hackathon</h3>
@@ -201,7 +257,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 4 -->
                 <div class="glass-card project-card reveal hover-lift">
                     <div class="project-header">
                         <h3>Smart India Hackathon</h3>
@@ -221,7 +277,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 5 -->
                 <div class="glass-card project-card reveal hover-lift">
                     <div class="project-header">
                         <h3>Alcohol Detection System with Engine Locking</h3>
@@ -241,7 +297,7 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- Project 6 -->
                 <div class="glass-card project-card reveal hover-lift">
                     <div class="project-header">
                         <h3>Gas Leakage Monitoring & Alerting System</h3>
@@ -261,7 +317,7 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
+                <!-- Project 7 -->
                 <div class="glass-card project-card reveal hover-lift">
                     <div class="project-header">
                         <h3>Metamaterial Antenna for Wideband Applications</h3>

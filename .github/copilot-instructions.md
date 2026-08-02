@@ -1,44 +1,54 @@
-# Copilot Instructions for Cloover AI
+# Copilot Instructions for the Gokul Rajan Portfolio
 
 ## Project Overview
-- **Cloover AI** is a minimalist, voice-first autonomous sales assistant. It reads customer data from an Excel file and uses a multi-agent AI pipeline to generate personalized sales playbooks.
-- The UI is a single-orb, hands-free interface. All major logic is in `script.js`, with supporting files `index.html` and `style.css`.
 
-## Architecture & Data Flow
-- **4-Agent Pipeline:**
-  1. **Market Intelligence Agent:** Analyzes market and location data.
-  2. **Offer Strategy Agent:** Recommends products and predicts objections.
-  3. **Financing Strategy Agent:** Optimizes payment options and incentives.
-  4. **Master Sales Coach:** Synthesizes all agent outputs into a markdown playbook and a 30-second audio script.
-- **Data Source:** Customer leads are loaded from `leads.xlsx` (parsed at runtime via SheetJS CDN).
-- **LLM Integration:** Uses Google Gemini API (`gemini-flash-lite-latest`) for agentic reasoning.
-- **Speech:** Uses Web Speech API for recognition and ElevenLabs API for TTS.
+- This repository is a personal portfolio site, live at https://www.gokulrajan.de/.
+- It is a plain static site. There is no framework, no bundler, no package manager and no
+  build step. Do not introduce one without being asked.
+- `index.html`, `style.css` and `script.js` make up the portfolio page. `blog.html` is a
+  separate, self-contained blog index; `blogposts/` holds exported post HTML.
 
-## Developer Workflows
-- **Run Locally:**
-  - Start a local server to avoid CORS issues:
-    ```bash
-    python3 -m http.server 8080
-    ```
-  - Visit `http://localhost:8080` and allow microphone access.
-- **No build step** is required; all code is vanilla JS/HTML/CSS.
-- **No test suite** is present; manual testing via browser is expected.
+## Architecture
 
-## Project-Specific Conventions
-- **All agent logic and orchestration** is in `script.js`.
-- **Excel file** must be named `leads.xlsx` and placed in the project root.
-- **CDN dependencies** (SheetJS, Gemini, ElevenLabs) are loaded in `index.html`.
-- **Voice UI**: The orb triggers all interactions; no keyboard navigation is supported.
+- **Content lives in the markup.** There is no data file, CMS or template layer. Adding a
+  project, skill or timeline entry means adding markup to `index.html`.
+- **`script.js` does four things**, all inside one `DOMContentLoaded` handler: the
+  `IntersectionObserver` scroll reveal, the `scrolled` class on the header, smooth scrolling
+  for `a[href^="#"]`, and the theme toggle.
+- **`blog.html` is intentionally standalone** with its own inline `<style>` block. It does not
+  use `style.css` or `script.js`. Keep it self-contained.
 
-## Integration Points
-- **SheetJS** for Excel parsing (runtime, not build-time).
-- **Google Gemini API** for LLM calls (see `script.js`).
-- **ElevenLabs API** for TTS (see `script.js`).
+## Conventions
+
+- **Theming goes through CSS variables.** Every colour is a custom property defined on `:root`
+  and overridden under `[data-theme="light"]`. Never hardcode a colour in a rule; add a
+  variable, or a `[data-theme="light"]` override if a value cannot be expressed as one.
+- **Card markup is compositional.** A card is `glass-card` plus a role class
+  (`skill-card`, `project-card`, `edu-card`, `cert-card`), plus `reveal` to opt into the scroll
+  animation and `hover-lift` for the hover effect. Reuse these instead of writing new card CSS.
+- **The skills and projects sections are flex, not grid**, with a per-breakpoint `max-width` on
+  the children and `justify-content: center`. This keeps all cards the same width and centres a
+  trailing partial row. Adding a card should need no CSS change; if you are tempted to switch
+  back to `grid-template-columns`, note that it leaves a stretched orphan on the last row.
+- **Icons are Font Awesome 6 classes** (`fa-solid`, `fa-brands`) loaded from a CDN, as is the
+  Outfit font. Nothing is vendored, and there are no local assets to build.
+
+## Developer Workflow
+
+- Open `index.html` directly, or serve the folder to match production link behaviour:
+  ```bash
+  python3 -m http.server 8080
+  ```
+- There is no test suite. Verify changes in the browser, in both themes (toggle in the header)
+  and at mobile, tablet and desktop widths.
 
 ## Examples
-- To add a new agent, extend the agent pipeline in `script.js` and update the orchestration logic.
-- To change the Excel schema, update both the parsing logic in `script.js` and the expected columns in `leads.xlsx`.
+
+- **New project card:** copy an existing `.glass-card.project-card` block in `#projects`, keep
+  the `project-header` / `description` / `key-contributions` / `tags` / optional `project-links`
+  order. Cards without a link simply omit `.project-links`.
+- **New blog post:** add the exported HTML to `blogposts/` and link it from `blog.html`.
 
 ---
 
-For more, see [README.md](../../README.md).
+For more, see [README.md](../README.md).
