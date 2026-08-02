@@ -311,12 +311,6 @@ h1, h2, h3 {
     margin-bottom: 1.5rem;
 }
 
-.hero-credential {
-    font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-    color: var(--text-muted);
-    margin-bottom: 0.6rem;
-}
-
 /* Reserve the line so the layout does not jump while a role is deleted */
 .hero h2.typewriter {
     min-height: 1.6em;
