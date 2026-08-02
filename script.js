@@ -23,6 +23,50 @@
             revealOnScroll.observe(el);
         });
 
+        // Hero Typewriter — cycles through the roles one at a time
+        const typedRole = document.getElementById('typed-role');
+
+        if (typedRole) {
+            const roles = ['SAP Change Management', 'AI Workflow Automation'];
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (prefersReducedMotion) {
+                // Skip the animation entirely and show the roles as plain text
+                typedRole.textContent = roles.join(' | ');
+                document.querySelector('.caret')?.remove();
+            } else {
+                const TYPE_SPEED = 75;      // ms per character while typing
+                const DELETE_SPEED = 35;    // ms per character while deleting
+                const HOLD_FULL = 1900;     // pause once a role is fully typed
+                const HOLD_EMPTY = 400;     // pause before the next role starts
+
+                let roleIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                const tick = () => {
+                    const role = roles[roleIndex];
+                    charIndex += isDeleting ? -1 : 1;
+                    typedRole.textContent = role.slice(0, charIndex);
+
+                    let delay = isDeleting ? DELETE_SPEED : TYPE_SPEED;
+
+                    if (!isDeleting && charIndex === role.length) {
+                        isDeleting = true;
+                        delay = HOLD_FULL;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        delay = HOLD_EMPTY;
+                    }
+
+                    setTimeout(tick, delay);
+                };
+
+                setTimeout(tick, 700);
+            }
+        }
+
         // Header Background on Scroll
         const header = document.querySelector('header');
         

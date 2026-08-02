@@ -204,6 +204,19 @@ h1, h2, h3 {
     color: var(--primary);
 }
 
+/* Visible to screen readers only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .glass-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -252,6 +265,32 @@ h1, h2, h3 {
     color: var(--text-muted);
     font-weight: 300;
     margin-bottom: 1.5rem;
+}
+
+/* Reserve the line so the layout does not jump while a role is deleted */
+.hero h2.typewriter {
+    min-height: 1.6em;
+}
+
+.caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 4px;
+    vertical-align: -0.15em;
+    background: var(--primary);
+    animation: caret-blink 1s step-end infinite;
+}
+
+@keyframes caret-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .caret {
+        animation: none;
+    }
 }
 
 .hero .location {
@@ -627,10 +666,22 @@ h1, h2, h3 {
     gap: 0.4rem;
 }
 
+.award-badge--silver {
+    background: rgba(203, 213, 225, 0.12);
+    border: 1px solid rgba(203, 213, 225, 0.4);
+    color: #cbd5e1;
+}
+
 [data-theme="light"] .award-badge {
     background: rgba(180, 83, 9, 0.12);
     border-color: rgba(180, 83, 9, 0.35);
     color: #b45309;
+}
+
+[data-theme="light"] .award-badge--silver {
+    background: rgba(71, 85, 105, 0.12);
+    border-color: rgba(71, 85, 105, 0.35);
+    color: #475569;
 }
 
 .project-card .description {
